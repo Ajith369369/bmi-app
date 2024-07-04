@@ -1,29 +1,33 @@
 // This component handles user input for weight and height.
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
 const BMIForm = ({ onCalculate }) => {
   const [formState, setFormState] = useState({
-    weight:"",
-    height:""
+    weight: "",
+    height: "",
   });
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormState((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
-
     // Prevents form from reloading the page
     e.preventDefault();
 
     // Calls the parent function to calculate BMI
     onCalculate(formState.weight, formState.height);
+  };
+
+  const handleReset = () => {
+    setFormState({ weight: "", height: "" });
+    onReset();
   };
 
   return (
@@ -48,7 +52,18 @@ const BMIForm = ({ onCalculate }) => {
           required
         />
       </div>
-      <button type="submit">Calculate BMI</button>
+      <div className="d-flex flex-wrap justify-content-between align-items-center">
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
+        <button type="submit" className="btn btn-primary">
+          Calculate BMI
+        </button>
+      </div>
     </form>
   );
 };
@@ -56,6 +71,7 @@ const BMIForm = ({ onCalculate }) => {
 // PropTypes validation
 BMIForm.propTypes = {
   onCalculate: PropTypes.func.isRequired,
+  onReset: PropTypes.func.isRequired,
 };
 
 export default BMIForm;

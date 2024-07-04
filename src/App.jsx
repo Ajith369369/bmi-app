@@ -12,6 +12,10 @@ const App = () => {
     setBmi(bmi);
   };
 
+  const resetBMI = () => {
+    setBmi(null);
+  };
+
   return (
     <>
       <div className="container-fluid w-100 h-100 mt-5 pt-5">
@@ -20,7 +24,7 @@ const App = () => {
           <div className="col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10 d-flex justify-content-center align-items-center">
             <div className="App">
               <h1>BMI Calculator</h1>
-              <BMIForm onCalculate={calculateBMI} />
+              <BMIForm onCalculate={calculateBMI} onReset={resetBMI}/>
 
               {/* Conditionally renders the BMIResult component if bmi is calculated. */}
               {bmi && <BMIResult bmi={bmi} />}
