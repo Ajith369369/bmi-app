@@ -1,5 +1,6 @@
 // This component handles user input for weight and height.
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
 const BMIForm = ({ onCalculate }) => {
@@ -50,6 +51,11 @@ const BMIForm = ({ onCalculate }) => {
       <button type="submit">Calculate BMI</button>
     </form>
   );
+};
+
+// PropTypes validation
+BMIForm.propTypes = {
+  onCalculate: PropTypes.func.isRequired,
 };
 
 export default BMIForm;

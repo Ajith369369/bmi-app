@@ -1,4 +1,5 @@
 // This component displays the BMI result and its category.
+import PropTypes from 'prop-types';
 
 const BMIResult = ({ bmi }) => {
   let category = '';
@@ -13,6 +14,11 @@ const BMIResult = ({ bmi }) => {
       <p>Category: {category}</p>
     </div>
   );
+};
+
+// PropTypes validation
+BMIResult.propTypes = {
+  bmi: PropTypes.number.isRequired
 };
 
 export default BMIResult;
