@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.bmi-form {
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.bmi-result {
+  margin-top: 20px;
+  font-size: 18px;
+}
