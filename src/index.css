@@ -4,10 +4,26 @@
 }
 
 body {
+  position: relative;
   width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+#root > div {
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 
 
