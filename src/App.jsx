@@ -3,6 +3,7 @@
 import { useState } from "react";
 import BMIForm from "./components/BMIForm";
 import BMIResult from "./components/BMIResult";
+import BMIIndicator from './components/BMIIndicator'; 
 import "./App.css";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
               {/* Props Sent to "BMIResult" */}
               {/* The calculated BMI value passed to `BMIResult` to display the result. */}
               {bmi && <BMIResult bmi={bmi} />}
+              <BMIIndicator bmi={bmi} />
             </div>
           </div>
           <div className="col-sm-0 col-md-1 col-lg-1 col-xl-1 col-xxl-1"></div>
