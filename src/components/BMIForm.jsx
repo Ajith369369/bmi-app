@@ -1,9 +1,15 @@
+// Manages form input state (`formState`).
+// Calls the parent-provided `onCalculate` function to calculate BMI.
+// Calls the parent-provided `onReset` function to reset BMI.
 // This component handles user input for weight and height.
 import { useState } from "react";
 import PropTypes from "prop-types";
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
-const BMIForm = ({ onCalculate }) => {
+// Receiving Props
+const BMIForm = ({ onCalculate, onReset }) => {
+
+  // State Initialization
   const [formState, setFormState] = useState({
     weight: "",
     height: "",

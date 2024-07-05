@@ -1,6 +1,8 @@
+// Receives the calculated BMI as a prop (`bmi`) and displays it.
 // This component displays the BMI result and its category.
 import PropTypes from 'prop-types';
 
+// Receiving Props
 const BMIResult = ({ bmi }) => {
   let category = '';
   if (bmi < 18.5) category = 'Underweight';

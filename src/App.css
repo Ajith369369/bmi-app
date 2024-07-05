@@ -10,8 +10,12 @@
   text-align: left;
 }
 
-.form-group {
+form button {
   margin: 10px 0px;
+}
+
+.form-group {
+  margin: 20px 0px;
 }
 
 .form-group label {
