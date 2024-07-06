@@ -91,16 +91,7 @@ const BMIIndicator = ({ bmi }) => {
     window.addEventListener('resize', updateWidth_indicatorcontainer);
     return () => window.removeEventListener('resize', updateWidth_indicatorcontainer);
   }, []);
-
-  useEffect(() => {
-    const updateWidth_indicatorcontainer = () => {
-      const containerWidth_indicatorcontainer = document.querySelector('.indicator-container').offsetWidth;
-      setWidth(containerWidth_indicatorcontainer);
-    };
-    updateWidth_indicatorcontainer();
-    window.addEventListener('resize', updateWidth_indicatorcontainer);
-    return () => window.removeEventListener('resize', updateWidth_indicatorcontainer);
-  }, []); */
+  */
 
   // Track widths of the elements
   /* const widths = useElementWidths([
@@ -122,6 +113,11 @@ const BMIIndicator = ({ bmi }) => {
   console.log(`overweightWidth = ${overweightWidth}`);
   var obeseWidth = formBMIIndicatorState.obese_width || 0;
   console.log(`obeseWidth = ${obeseWidth}`);
+
+  if (bmi < 18.5) category = 'Underweight';
+  else if (bmi < 24.9) category = 'Normal weight';
+  else if (bmi < 29.9) category = 'Overweight';
+  else category = 'Obesity';
 
   // calculateXPosition:
   // Clamping BMI: Ensures the BMI is between 15 and 40 for positioning purposes.

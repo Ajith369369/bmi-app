@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 const BMIResult = ({ bmi }) => {
   let category = '';
   if (bmi < 18.5) category = 'Underweight';
-  else if (bmi < 24.9) category = 'Normal weight';
-  else if (bmi < 29.9) category = 'Overweight';
+  else if (bmi < 25) category = 'Normal weight';
+  else if (bmi < 30) category = 'Overweight';
   else category = 'Obesity';
 
   return (
