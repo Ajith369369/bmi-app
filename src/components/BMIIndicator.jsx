@@ -7,6 +7,10 @@ const BMIIndicator = ({ bmi }) => {
   // Holds the width of the indicator container. It helps calculate the position of the BMI indicator.
   const [width, setWidth] = useState(0);
 
+  // useEffect:
+  // Runs after the component mounts and sets up an event listener for window resize to dynamically update the container width.
+  // updateWidth: Gets the current width of the .indicator-container element and updates the width state.
+  // Cleans up the event listener when the component unmounts to avoid memory leaks.
   useEffect(() => {
     const updateWidth = () => {
       const containerWidth = document.querySelector('.indicator-container').offsetWidth;
@@ -17,6 +21,10 @@ const BMIIndicator = ({ bmi }) => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
+  // calculateXPosition:
+  // Clamping BMI: Ensures the BMI is between 15 and 40 for positioning purposes.
+  // Position Calculation: Calculates the left position of the indicator based on the clamped BMI value and the width of the container. Converts the position into pixels.
+  // Returns '0px' if BMI is null, ensuring the indicator is positioned at the start if there's no valid BMI.
   const calculateXPosition = () => {
     if (bmi !== null) {
       const clampedBMI = Math.min(40, Math.max(15, bmi));
@@ -43,6 +51,7 @@ const BMIIndicator = ({ bmi }) => {
 };
 
 // PropTypes validation
+// Validates that the bmi prop passed to the BMIIndicator component is a number. If no prop is passed, it allows null.
 BMIIndicator.propTypes = {
   bmi: PropTypes.number,
 };

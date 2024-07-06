@@ -1,7 +1,7 @@
 .bmi-indicator-container {
   position: relative;
   width: 100%;
-  margin: 20px auto;
+  margin: 50px auto;
   text-align: center;
 }
 
@@ -24,6 +24,7 @@
 
 .category {
   flex: 1;
+  /* width: 176px; */
   font-weight: bold;
   text-align: center;
 }
