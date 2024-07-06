@@ -1,0 +1,21 @@
+.form-group {
+  padding-left: 5px;
+  padding-right: 5px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group label {
+  margin-right: auto;
+  flex: 1;
+}
+
+div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div > input {
+  box-sizing: border-box;
+  flex: 1;
+  /* margin: calc(100% - 20px); */
+}
+
+

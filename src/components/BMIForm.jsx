@@ -4,6 +4,7 @@
 // This component handles user input for weight and height.
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "../BMIForm.css";
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
 // Receiving Props
