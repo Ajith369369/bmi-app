@@ -19,15 +19,19 @@ const BMIIndicator = ({ bmi }) => {
   useEffect(() => {
     // Function to Update Widths
     const updateWidths = () => {
-      const indicatorContainer = document.querySelector('.indicator-container');
-      const underweightElement = document.querySelector('.underweight');
-      const healthyElement = document.querySelector('.healthy');
-      const overweightElement = document.querySelector('.overweight');
-      const obeseElement = document.querySelector('.obese');
+      const indicatorContainer = document.querySelector(".indicator-container");
+      const underweightElement = document.querySelector(".underweight");
+      const healthyElement = document.querySelector(".healthy");
+      const overweightElement = document.querySelector(".overweight");
+      const obeseElement = document.querySelector(".obese");
 
       setformBMIIndicatorState({
-        indicatorcontainer_width: indicatorContainer ? indicatorContainer.offsetWidth : 0,
-        underweight_width: underweightElement ? underweightElement.offsetWidth : 0,
+        indicatorcontainer_width: indicatorContainer
+          ? indicatorContainer.offsetWidth
+          : 0,
+        underweight_width: underweightElement
+          ? underweightElement.offsetWidth
+          : 0,
         healthy_width: healthyElement ? healthyElement.offsetWidth : 0,
         overweight_width: overweightElement ? overweightElement.offsetWidth : 0,
         obese_width: obeseElement ? obeseElement.offsetWidth : 0,
@@ -38,15 +42,15 @@ const BMIIndicator = ({ bmi }) => {
     updateWidths();
 
     // Add Resize Event Listener
-    window.addEventListener('resize', updateWidths);
+    window.addEventListener("resize", updateWidths);
 
     // Cleanup Event Listener on Unmount
     return () => {
-      window.removeEventListener('resize', updateWidths);
+      window.removeEventListener("resize", updateWidths);
     };
   }, []);
 
- /*  function useElementWidths(selectors) {
+  /*  function useElementWidths(selectors) {
     const [widths, setWidths] = useState({});
   
     const updateWidths = useCallback(() => {
@@ -76,7 +80,6 @@ const BMIIndicator = ({ bmi }) => {
     return widths;
   }
  */
-  
 
   // useEffect:
   // Runs after the component mounts and sets up an event listener for window resize to dynamically update the container width.
@@ -103,7 +106,8 @@ const BMIIndicator = ({ bmi }) => {
   ]); */
 
   // Access specific widths
-  var indicatorcontainerWidth = formBMIIndicatorState.indicatorcontainer_width || 0;
+  var indicatorcontainerWidth =
+    formBMIIndicatorState.indicatorcontainer_width || 0;
   console.log(`indicatorcontainerWidth = ${indicatorcontainerWidth}`);
   var underweightWidth = formBMIIndicatorState.underweight_width || 0;
   console.log(`underweightWidth = ${underweightWidth}`);
@@ -119,30 +123,40 @@ const BMIIndicator = ({ bmi }) => {
   // var clampedBMI = 0;
 
   switch (true) {
-    case (bmi < 18.5):
-      category = 'Underweight';
-      calculatedPosition = ((bmi * underweightWidth) / 18.4) || 0;
+    case bmi < 18.5:
+      category = "Underweight";
+      calculatedPosition = (bmi * underweightWidth) / 18.4 || 0;
 
       // Ensure calculatedPosition does not exceed container width
       calculatedPosition = Math.max(0, calculatedPosition);
       break;
-    case (bmi < 25):
-      category = 'Normal weight';
-      calculatedPosition = underweightWidth + (((bmi - 18.4) * healthyWidth) / (24.9 - 18.5)) || 0;
+    case bmi < 25:
+      category = "Normal weight";
+      calculatedPosition =
+        underweightWidth + ((bmi - 18.4) * healthyWidth) / (24.9 - 18.5) || 0;
       break;
-    case (bmi < 30):
-      category = 'Overweight';
-      calculatedPosition = underweightWidth + healthyWidth + (((bmi - 24.9) * overweightWidth) / (29.9 - 25)) || 0;
+    case bmi < 30:
+      category = "Overweight";
+      calculatedPosition =
+        underweightWidth +
+          healthyWidth +
+          ((bmi - 24.9) * overweightWidth) / (29.9 - 25) || 0;
       break;
     default:
-      category = 'Obesity';
+      category = "Obesity";
       // clampedBMI = Math.min(40, Math.max(30, bmi));
-      calculatedPosition = underweightWidth + healthyWidth + overweightWidth + (((bmi - 29.9) * obeseWidth) / (40 - 30)) || 0;
-      
-      // Ensure calculatedPosition does not exceed container width
-      calculatedPosition = Math.min(calculatedPosition, indicatorcontainerWidth);
-  }
+      calculatedPosition =
+        underweightWidth +
+          healthyWidth +
+          overweightWidth +
+          ((bmi - 29.9) * obeseWidth) / (40 - 30) || 0;
 
+      // Ensure calculatedPosition does not exceed container width
+      calculatedPosition = Math.min(
+        calculatedPosition,
+        indicatorcontainerWidth
+      );
+  }
 
   // calculateXPosition:
   // Clamping BMI: Ensures the BMI is between 15 and 40 for positioning purposes.
@@ -160,7 +174,10 @@ const BMIIndicator = ({ bmi }) => {
   return (
     <div className="bmi-indicator-container">
       {/* bmi.toFixed(1) will round the BMI value to one decimal place and return it as a string. */}
-      <div className="bmi-indicator" style={{ left: `${calculatedPosition}px` }}>
+      <div
+        className="bmi-indicator"
+        style={{ left: `${calculatedPosition}px` }}
+      >
         {bmi && bmi.toFixed(1)}
       </div>
       <div className="bmi-categories">
