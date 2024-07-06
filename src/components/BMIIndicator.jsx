@@ -107,34 +107,60 @@ const BMIIndicator = ({ bmi }) => {
   console.log(`indicatorcontainerWidth = ${indicatorcontainerWidth}`);
   var underweightWidth = formBMIIndicatorState.underweight_width || 0;
   console.log(`underweightWidth = ${underweightWidth}`);
-  var healthyWidth = formBMIIndicatorState.healthyElement || 0;
+  var healthyWidth = formBMIIndicatorState.healthy_width || 0;
   console.log(`healthyWidth = ${healthyWidth}`);
   var overweightWidth = formBMIIndicatorState.overweight_width || 0;
   console.log(`overweightWidth = ${overweightWidth}`);
   var obeseWidth = formBMIIndicatorState.obese_width || 0;
   console.log(`obeseWidth = ${obeseWidth}`);
 
-  if (bmi < 18.5) category = 'Underweight';
-  else if (bmi < 24.9) category = 'Normal weight';
-  else if (bmi < 29.9) category = 'Overweight';
-  else category = 'Obesity';
+  let category;
+  var calculatedPosition = 0;
+  // var clampedBMI = 0;
+
+  switch (true) {
+    case (bmi < 18.5):
+      category = 'Underweight';
+      calculatedPosition = ((bmi * underweightWidth) / 18.4) || 0;
+
+      // Ensure calculatedPosition does not exceed container width
+      calculatedPosition = Math.max(0, calculatedPosition);
+      break;
+    case (bmi < 25):
+      category = 'Normal weight';
+      calculatedPosition = underweightWidth + (((bmi - 18.4) * healthyWidth) / (24.9 - 18.5)) || 0;
+      break;
+    case (bmi < 30):
+      category = 'Overweight';
+      calculatedPosition = underweightWidth + healthyWidth + (((bmi - 24.9) * overweightWidth) / (29.9 - 25)) || 0;
+      break;
+    default:
+      category = 'Obesity';
+      // clampedBMI = Math.min(40, Math.max(30, bmi));
+      calculatedPosition = underweightWidth + healthyWidth + overweightWidth + (((bmi - 29.9) * obeseWidth) / (40 - 30)) || 0;
+      
+      // Ensure calculatedPosition does not exceed container width
+      calculatedPosition = Math.min(calculatedPosition, indicatorcontainerWidth);
+  }
+
 
   // calculateXPosition:
   // Clamping BMI: Ensures the BMI is between 15 and 40 for positioning purposes.
   // Position Calculation: Calculates the left position of the indicator based on the clamped BMI value and the width of the container. Converts the position into pixels.
   // Returns '0px' if BMI is null, ensuring the indicator is positioned at the start if there's no valid BMI.
-  const calculateXPosition = () => {
+  /* const calculateXPosition = () => {
     if (bmi !== null) {
       const clampedBMI = Math.min(40, Math.max(15, bmi));
       const x = ((clampedBMI - 15) / (40 - 15)) * width || 0;
       return `${x}px`;
     }
     return "0px";
-  };
+  }; */
 
   return (
     <div className="bmi-indicator-container">
-      <div className="bmi-indicator" style={{ left: calculateXPosition() }}>
+      {/* bmi.toFixed(1) will round the BMI value to one decimal place and return it as a string. */}
+      <div className="bmi-indicator" style={{ left: `${calculatedPosition}px` }}>
         {bmi && bmi.toFixed(1)}
       </div>
       <div className="bmi-categories">
