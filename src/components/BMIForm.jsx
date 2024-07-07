@@ -15,8 +15,8 @@ const BMIForm = ({ onCalculate, onReset }) => {
   const [formState, setFormState] = useState({
     weight: "",
     height: "",
-    isweight: "",
-    isheight: "",
+    isweight: true,
+    isheight: true,
   });
 
   const handleChange = (e) => {
@@ -167,7 +167,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
             },
           }}
         />
-        {!formState.isweight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
+        {!formState.isheight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
 
         {/* <label>Height (cm):</label>
         Setting min="0" in the input tag helps prevent users from entering values less than zero.
