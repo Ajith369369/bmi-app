@@ -7,13 +7,28 @@
 
 .bmi-indicator {
   position: absolute;
-  top: -30px;
+  top: -40px;
   transform: translateX(-50%);
   background-color: #007bff;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
+}
+
+.bmi-indicator::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  /* left: 50%: This places the left edge of the ::after element at the halfway point of the parent element (.bmi-indicator). */
+  transform: translateX(-50%);
+  /* transform: translateX(-50%): This shifts the ::after element further to the left by 50% of its width. */
+  width: 0;
+  height: 0;
+  border-top: 6px solid #007bff;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
 }
 
 .bmi-categories {
