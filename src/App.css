@@ -7,6 +7,10 @@
   font-family: Arial, sans-serif;
   padding: 20px;
   width: 100%;
+  background-color: rgba(222, 152, 224, 0.2);
+  backdrop-filter: blur(30px);
+  border: 1px solid black;
+  border-radius: 3%;
 }
 
 .bmi-form {

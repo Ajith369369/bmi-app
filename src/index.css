@@ -10,6 +10,10 @@
 body {
   overflow-x: hidden;
   font-family: Roboto Condensed, sans-serif;
+  background-image: url('https://img.livestrong.com/375/photos.demandstudios.com/getty/article/235/51/475954090.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #root {
