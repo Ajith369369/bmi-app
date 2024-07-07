@@ -86,7 +86,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
   };
 
   const handleReset = () => {
-    setFormState({ weight: "", height: "" });
+    setFormState({ weight: "", height: "", isweight: true, isheight: true });
     onReset();
   };
 
@@ -123,7 +123,9 @@ const BMIForm = ({ onCalculate, onReset }) => {
             },
           }}
         />
-        {!formState.isweight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
+        {!formState.isweight && (
+          <p className="fw-bold fs-5 me-auto">*Invalid Input</p>
+        )}
 
         {/* <label>Weight (kg):</label>
         Setting min="0" in the input tag helps prevent users from entering values less than zero.
@@ -167,7 +169,9 @@ const BMIForm = ({ onCalculate, onReset }) => {
             },
           }}
         />
-        {!formState.isheight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
+        {!formState.isheight && (
+          <p className="fw-bold fs-5 me-auto">*Invalid Input</p>
+        )}
 
         {/* <label>Height (cm):</label>
         Setting min="0" in the input tag helps prevent users from entering values less than zero.
@@ -184,7 +188,11 @@ const BMIForm = ({ onCalculate, onReset }) => {
         <button type="button" className="btn btn-warning" onClick={handleReset}>
           Reset
         </button>
-        <button type="submit" className="btn btn-primary">
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={formState.isweight && formState.isheight ? false : true}
+        >
           Calculate BMI
         </button>
       </div>
