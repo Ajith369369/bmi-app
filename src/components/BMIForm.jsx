@@ -5,7 +5,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import "../BMIForm.css";
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
@@ -77,12 +77,15 @@ const BMIForm = ({ onCalculate, onReset }) => {
 
     // Check if weight or height is zero
     // if (formState.weight === "" || formState.height === "") {
-    /* if (!formState.weight || !formState.height) {
-      alert("Please fill the form with valid values.");
-    } else {) */
-
-    // Calls the parent function to calculate BMI
-    onCalculate(formState.weight, formState.height);
+    if (!formState.weight || !formState.height) {
+      alert("Please fill the form completely.");
+    } /* else if (formState.weight === 0 || formState.height === 0){
+      alert("Please fill the form completely.");
+    } */
+    else {
+      // Calls the parent function to calculate BMI
+      onCalculate(formState.weight, formState.height);
+    }
   };
 
   const handleReset = () => {
@@ -95,7 +98,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
       <div className="form-group">
         <TextField
           name="weight"
-          value={formState.weight}
+          value={formState.weight || ""}
           onChange={validate}
           className="w-100"
           id="outlined-basic"
@@ -141,7 +144,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
       <div className="form-group">
         <TextField
           name="height"
-          value={formState.height}
+          value={formState.height || ""}
           onChange={validate}
           className="w-100"
           id="outlined-basic"
