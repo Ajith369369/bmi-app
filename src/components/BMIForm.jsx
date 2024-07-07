@@ -4,12 +4,13 @@
 // This component handles user input for weight and height.
 import { useState } from "react";
 import PropTypes from "prop-types";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import "../BMIForm.css";
 
 // Initializes a state object formState with weight and height properties set to empty strings. Uses a single state object for both weight and height in the BMIForm component.
 // Receiving Props
 const BMIForm = ({ onCalculate, onReset }) => {
-
   // State Initialization
   const [formState, setFormState] = useState({
     weight: "",
@@ -37,8 +38,6 @@ const BMIForm = ({ onCalculate, onReset }) => {
 
     // Calls the parent function to calculate BMI
     onCalculate(formState.weight, formState.height);
-    
-
   };
 
   const handleReset = () => {
@@ -49,9 +48,40 @@ const BMIForm = ({ onCalculate, onReset }) => {
   return (
     <form onSubmit={handleSubmit} className="bmi-form">
       <div className="form-group">
-        <label>Weight (kg):</label>
-        
-        {/* Setting min="0" in the input tag helps prevent users from entering values less than zero. */}
+        <TextField
+          name="weight"
+          value={formState.weight}
+          onChange={handleChange}
+          className="w-100"
+          id="outlined-basic"
+          label="Weight (kg):"
+          variant="outlined"
+          sx={{
+            // Root class for the input field
+            "& .MuiOutlinedInput-root": {
+              color: "#000000",
+              fontFamily: "Arial",
+              fontWeight: "bold",
+              height: "60px",
+              alignItems: "center",
+              paddingLeft: "5px",
+              // Class for the border around the input field
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#000000",
+                borderWidth: "1px",
+              },
+            },
+            // Class for the label of the input field
+            "& .MuiInputLabel-outlined": {
+              color: "black",
+              fontSize: "16px",
+            },
+          }}
+        />
+        {/* {!isweight && <p className='text-danger'>*Invalid Input</p>} */}
+
+        {/* <label>Weight (kg):</label>
+        Setting min="0" in the input tag helps prevent users from entering values less than zero.
         <input
           type="number"
           name="weight"
@@ -59,10 +89,43 @@ const BMIForm = ({ onCalculate, onReset }) => {
           value={formState.weight}
           onChange={handleChange}
           required
-        />
+        /> */}
       </div>
       <div className="form-group">
-        <label>Height (cm):</label>
+        <TextField
+            name="height"
+            value={formState.height}
+            onChange={handleChange}
+            className="w-100"
+            id="outlined-basic"
+            label="Height (cm):"
+            variant="outlined"
+            sx={{
+              // Root class for the input field
+              "& .MuiOutlinedInput-root": {
+                color: "#000000",
+                fontFamily: "Arial",
+                fontWeight: "bold",
+                height: "60px",
+                alignItems: "center",
+                paddingLeft: "5px",
+                // Class for the border around the input field
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#000000",
+                  borderWidth: "1px",
+                },
+              },
+              // Class for the label of the input field
+              "& .MuiInputLabel-outlined": {
+                color: "black",
+                fontSize: "16px",
+              },
+            }}
+          />
+        {/* {!isweight && <p className='text-danger'>*Invalid Input</p>} */}
+
+        {/* <label>Height (cm):</label>
+        Setting min="0" in the input tag helps prevent users from entering values less than zero.
         <input
           type="number"
           name="height"
@@ -70,14 +133,10 @@ const BMIForm = ({ onCalculate, onReset }) => {
           value={formState.height}
           onChange={handleChange}
           required
-        />
+        /> */}
       </div>
       <div className="d-flex flex-wrap justify-content-between align-items-center">
-        <button
-          type="button"
-          className="btn btn-warning"
-          onClick={handleReset}
-        >
+        <button type="button" className="btn btn-warning" onClick={handleReset}>
           Reset
         </button>
         <button type="submit" className="btn btn-primary">
