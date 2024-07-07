@@ -15,6 +15,8 @@ const BMIForm = ({ onCalculate, onReset }) => {
   const [formState, setFormState] = useState({
     weight: "",
     height: "",
+    isweight: "",
+    isheight: "",
   });
 
   const handleChange = (e) => {
@@ -23,6 +25,49 @@ const BMIForm = ({ onCalculate, onReset }) => {
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const validate = (e) => {
+    const data = e.target.value;
+    const name = e.target.name;
+
+    /* !!data.match(/^[0-9]*$/) ? (
+      setWeight(data),
+      setIsweight(true)
+    ) : name === 'height' ? (
+      setHeight(data),
+      setIsheight(true)
+    ) : null; */
+
+    if (data.match(/^[0-9]*$/)) {
+      if (name == "weight") {
+        handleChange(e);
+        setFormState((prevState) => ({
+          ...prevState,
+          isweight: true,
+        }));
+      } else {
+        handleChange(e);
+        setFormState((prevState) => ({
+          ...prevState,
+          isheight: true,
+        }));
+      }
+    } else {
+      if (name == "weight") {
+        handleChange(e);
+        setFormState((prevState) => ({
+          ...prevState,
+          isweight: false,
+        }));
+      } else {
+        handleChange(e);
+        setFormState((prevState) => ({
+          ...prevState,
+          isheight: false,
+        }));
+      }
+    }
   };
 
   const handleSubmit = (e) => {
@@ -51,7 +96,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
         <TextField
           name="weight"
           value={formState.weight}
-          onChange={handleChange}
+          onChange={validate}
           className="w-100"
           id="outlined-basic"
           label="Weight (kg):"
@@ -78,7 +123,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
             },
           }}
         />
-        {/* {!isweight && <p className='text-danger'>*Invalid Input</p>} */}
+        {!formState.isweight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
 
         {/* <label>Weight (kg):</label>
         Setting min="0" in the input tag helps prevent users from entering values less than zero.
@@ -93,36 +138,36 @@ const BMIForm = ({ onCalculate, onReset }) => {
       </div>
       <div className="form-group">
         <TextField
-            name="height"
-            value={formState.height}
-            onChange={handleChange}
-            className="w-100"
-            id="outlined-basic"
-            label="Height (cm):"
-            variant="outlined"
-            sx={{
-              // Root class for the input field
-              "& .MuiOutlinedInput-root": {
-                color: "#000000",
-                fontFamily: "Arial",
-                fontWeight: "bold",
-                height: "60px",
-                alignItems: "center",
-                paddingLeft: "5px",
-                // Class for the border around the input field
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#000000",
-                  borderWidth: "1px",
-                },
+          name="height"
+          value={formState.height}
+          onChange={validate}
+          className="w-100"
+          id="outlined-basic"
+          label="Height (cm):"
+          variant="outlined"
+          sx={{
+            // Root class for the input field
+            "& .MuiOutlinedInput-root": {
+              color: "#000000",
+              fontFamily: "Arial",
+              fontWeight: "bold",
+              height: "60px",
+              alignItems: "center",
+              paddingLeft: "5px",
+              // Class for the border around the input field
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#000000",
+                borderWidth: "1px",
               },
-              // Class for the label of the input field
-              "& .MuiInputLabel-outlined": {
-                color: "black",
-                fontSize: "16px",
-              },
-            }}
-          />
-        {/* {!isweight && <p className='text-danger'>*Invalid Input</p>} */}
+            },
+            // Class for the label of the input field
+            "& .MuiInputLabel-outlined": {
+              color: "black",
+              fontSize: "16px",
+            },
+          }}
+        />
+        {!formState.isweight && <p className="fw-bold fs-5 me-auto">*Invalid Input</p>}
 
         {/* <label>Height (cm):</label>
         Setting min="0" in the input tag helps prevent users from entering values less than zero.
