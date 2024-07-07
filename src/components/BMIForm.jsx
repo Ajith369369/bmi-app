@@ -27,9 +27,18 @@ const BMIForm = ({ onCalculate, onReset }) => {
   const handleSubmit = (e) => {
     // Prevents form from reloading the page
     e.preventDefault();
+    console.log(formState);
+
+    // Check if weight or height is zero
+    // if (formState.weight === "" || formState.height === "") {
+    /* if (!formState.weight || !formState.height) {
+      alert("Please fill the form with valid values.");
+    } else {) */
 
     // Calls the parent function to calculate BMI
     onCalculate(formState.weight, formState.height);
+    
+
   };
 
   const handleReset = () => {
