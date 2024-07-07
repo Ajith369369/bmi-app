@@ -41,9 +41,12 @@ const BMIForm = ({ onCalculate, onReset }) => {
     <form onSubmit={handleSubmit} className="bmi-form">
       <div className="form-group">
         <label>Weight (kg):</label>
+        
+        {/* Setting min="0" in the input tag helps prevent users from entering values less than zero. */}
         <input
           type="number"
           name="weight"
+          min="0"
           value={formState.weight}
           onChange={handleChange}
           required
@@ -54,6 +57,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
         <input
           type="number"
           name="height"
+          min="0"
           value={formState.height}
           onChange={handleChange}
           required

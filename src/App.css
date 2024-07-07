@@ -1,3 +1,7 @@
+#root > div, #root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center {
+  padding: 0px;
+}
+
 .App {
   text-align: center;
   font-family: Arial, sans-serif;
