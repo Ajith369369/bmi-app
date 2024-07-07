@@ -55,7 +55,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
         <input
           type="number"
           name="weight"
-          min="0"
+          min="1"
           value={formState.weight}
           onChange={handleChange}
           required
@@ -66,7 +66,7 @@ const BMIForm = ({ onCalculate, onReset }) => {
         <input
           type="number"
           name="height"
-          min="0"
+          min="1"
           value={formState.height}
           onChange={handleChange}
           required
