@@ -71,7 +71,8 @@
   margin-top: 10px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
+  /* CSS rules for Extra Small screens */
   .underweight,
   .healthy,
   .overweight,
@@ -79,3 +80,14 @@
     font-size: 11px;
   }
 }
+
+@media (min-width: 576px) {
+  /* CSS rules for Extra Small screens */
+  .underweight,
+  .healthy,
+  .overweight,
+  .obese {
+    font-size: 14px;
+  }
+}
+

@@ -1,5 +1,5 @@
 #root > div, #root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center {
-  padding: 0px;
+  padding: 15px;
 }
 
 .App {
@@ -38,4 +38,16 @@ form button {
   margin-top: 20px;
   font-size: 18px;
   background-color: green;
+}
+
+@media (min-width: 576px) and (max-width: 799px) {
+  .App {
+    width: 70%;
+  }
+}
+
+@media (min-width: 800px) {
+  .App {
+    width: 440px;
+  }
 }

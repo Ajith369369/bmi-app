@@ -156,6 +156,7 @@ const BMIIndicator = ({ bmi }) => {
         calculatedPosition,
         indicatorcontainerWidth
       );
+      // console.log(`calculatedPosition for Obesity: ${calculatedPosition}`);
   }
 
   // calculateXPosition:
