@@ -1,5 +1,6 @@
-#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form {
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.flex-column.justify-content-center.align-items-center > div > form {
   max-width: 100%;
+  width: 100%;
 }
 
 .form-group {
@@ -16,17 +17,17 @@
   flex: 1;
 }
 
-div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div > input {
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.flex-column.justify-content-center.align-items-center > div > form > div > input {
   box-sizing: border-box;
   flex: 1;
   /* margin: calc(100% - 20px); */
 }
 
-#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-warning {
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.flex-column.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-warning {
   margin-left: 10px;
 }
 
-#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-primary {
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.flex-column.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-primary {
   margin-right: 10px;
 }
 
