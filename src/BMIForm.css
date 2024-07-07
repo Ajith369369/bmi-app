@@ -22,6 +22,14 @@ div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-ce
   /* margin: calc(100% - 20px); */
 }
 
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-warning {
+  margin-left: 10px;
+}
+
+#root > div > div > div.col-sm-12.col-md-10.col-lg-10.col-xl-10.col-xxl-10.d-flex.justify-content-center.align-items-center > div > form > div.d-flex.flex-wrap.justify-content-between.align-items-center > button.btn.btn-primary {
+  margin-right: 10px;
+}
+
 @media (min-width: 576px) {
   /* CSS rules for Medium screens */
   .bmi-form {
