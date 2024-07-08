@@ -188,12 +188,12 @@ const BMIForm = ({ onCalculate, onReset }) => {
         /> */}
       </div>
       <div className="d-flex flex-wrap justify-content-between align-items-center">
-        <button type="button" className="btn btn-warning" onClick={handleReset}>
+        <button type="button" className="btn btn-warning rounded-2" onClick={handleReset}>
           Reset
         </button>
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary rounded-2"
           disabled={formState.isweight && formState.isheight ? false : true}
         >
           Calculate BMI
