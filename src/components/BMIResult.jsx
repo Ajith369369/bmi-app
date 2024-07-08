@@ -18,7 +18,7 @@ const BMIResult = ({ bmi }) => {
     category = "Overweight";
     backgroundColor = "orange";
   } else {
-    category = "Obesity";
+    category = "Obese";
     backgroundColor = "red";
   }
 

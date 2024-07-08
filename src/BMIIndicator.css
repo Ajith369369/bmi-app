@@ -66,7 +66,8 @@
 .indicator-container {
   position: relative;
   height: 20px;
-  background: #f0f0f0;
+  background-color: rgba(221, 71, 226, 0.2);
+  backdrop-filter: blur(100px);
   margin-top: 10px;
 }
 
