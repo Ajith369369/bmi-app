@@ -131,7 +131,7 @@ const BMIIndicator = ({ bmi }) => {
       calculatedPosition = Math.max(0, calculatedPosition);
       break;
     case bmi < 25:
-      category = "Normal weight";
+      category = "Healthy";
       calculatedPosition =
         underweightWidth + ((bmi - 18.4) * healthyWidth) / (24.9 - 18.5) || 0;
       break;
@@ -143,7 +143,7 @@ const BMIIndicator = ({ bmi }) => {
           ((bmi - 24.9) * overweightWidth) / (29.9 - 25) || 0;
       break;
     default:
-      category = "Obesity";
+      category = "Obese";
       // clampedBMI = Math.min(40, Math.max(30, bmi));
       calculatedPosition =
         underweightWidth +
