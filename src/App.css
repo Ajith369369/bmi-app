@@ -38,12 +38,6 @@ form button {
   font-size: 16px;
 }
 
-.bmi-result {
-  margin-top: 20px;
-  font-size: 18px;
-  background-color: green;
-}
-
 @media (min-width: 576px) and (max-width: 799px) {
   .App {
     width: 70%;

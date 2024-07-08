@@ -1,6 +1,7 @@
 // Receives the calculated BMI as a prop (`bmi`) and displays it.
 // This component displays the BMI result and its category.
 import PropTypes from 'prop-types';
+import "../BMIResult.css";
 
 // Receiving Props
 const BMIResult = ({ bmi }) => {
@@ -11,7 +12,7 @@ const BMIResult = ({ bmi }) => {
   else category = 'Obesity';
 
   return (
-    <div className="bmi-result">
+    <div className="bmi-result d-flex flex-column justify-content-center align-items-center">
       <h2>Your BMI: {bmi.toFixed(2)}</h2>
       <p>Category: {category}</p>
     </div>
